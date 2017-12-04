@@ -4,6 +4,7 @@ import './App.css';
 import { Route } from 'react-router-dom'
 import HomeComponent from './components/Home'
 import CategoryComponent from './components/category'
+import CreatePostForm from './components/CreatePostForm'
 
 
 
@@ -13,6 +14,7 @@ class App extends Component {
       <div className="App">
        <Route exact path='/' component={HomeComponent}/>
        <Route path='/:category/posts' component={CategoryComponent} />
+        <Route path='/create-post' component={CreatePostForm} />
       </div>
     );
   }

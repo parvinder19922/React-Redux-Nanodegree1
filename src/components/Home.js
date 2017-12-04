@@ -5,11 +5,33 @@ import { Link } from 'react-router-dom'
 import * as categoryActions from '../actions'
 import './style.css'
 import PostComponent from './Post'
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
+
 
  class  HomeComponent extends Component {
+ 	constructor(props) {
+ 		super(props)
+ 		this.state ={
+ 			value: ''
+ 		}
+ 		this.handleChange = this.handleChange.bind(this)
+ 	}
+ 	handleChange(event) {
+ 		const {posts} = this.props 
+ 		if(event && event.value) {
+ 			this.setState({
+ 			value: event.value
+ 		})
+ 			this.props.categoryActions.sortPostData(posts, event.value)
+ 		}
+ 	}
  	componentWillMount() {
  		this.props.categoryActions.fetchCategories()
  		this.props.categoryActions.fetchPosts()
+ 	}
+ 	componentWillReceiveProps(nextProps) {
+ 		console.log(nextProps, "jklvklsjkldjvkls")
  	}
 	render() {
 		const {categories, posts} = this.props
@@ -25,13 +47,26 @@ import PostComponent from './Post'
 				})
 			}
 			<h1>Post List</h1>
+			<div className = "Select-list">
+				<Select
+        name="form-field-name"
+        value={this.state.value}
+        onChange={this.handleChange}
+        options={[
+          { value: 'timestamp', label: 'Date' },
+          { value: 'voteScore', label: 'Votes' },
+        ]}
+        placeholder="Sort By"
+      />
+      </div>
 			{posts.map((post, i) => {
 				return(
+					!post.deleted  && 
 					<PostComponent post={post} count={i}/>
 				)
 				})
 			}
-			<input type="button" name="submitButton" className="post-button"value="Create a Post"/>
+			<Link to="/create-post" className="post-button">Create A Post</Link>
 			</div>
 		)
 	}

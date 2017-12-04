@@ -35,5 +35,61 @@
 	text-align: left;
     margin-left: 30px;
 }
+.Select-list {
+	width: 200px;
+    margin-left: 60rem;
+}
 
+.post-original-container {
+	display: inherit;
+}
+
+.control-panel {
+	margin-top: 100px
+}
+.votes{
+	margin: 20px;
+}
+.edit {
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+}
+.delete {
+	background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+}
+.text-input {
+	margin: 20px;
+    width: 200px;
+    height: 26px;
+}
+
+.create-post-button {
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 27px;
+}
+.create-post-select {
+	width: 200px;
+    margin-left: 38rem;
+    margin-top: 14px;
+}
     
